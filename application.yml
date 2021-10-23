@@ -1,0 +1,20 @@
+server:
+  port: 20000
+
+spring:
+  application:
+    name: config-server
+  security:
+    user:
+      name: admin
+      password: 123
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/liaojianbin/heima-config.git
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@127.0.0.1:10086/eureka/
